@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍀 PALPITES DO DIA VIVI JB 🍀</title>
+    <title>🍀 PALPITE DO DIA VIVI JB 🍀</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,15 +11,6 @@
             background-color: #2E8B57; /* Cor verde para o fundo */
             color: white;
             margin: 20px;
-        }
-        #data {
-            background-color: black;
-            color: white;
-            padding: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
         }
         table {
             width: 60%;
@@ -49,14 +40,6 @@
         }
     </style>
     <script>
-        function gerarData() {
-            const diasSemana = ["DOMINGO", "SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SÁBADO"];
-            let hoje = new Date();
-            let diaSemana = diasSemana[hoje.getDay()];
-            let dataFormatada = `${diaSemana} ${hoje.getDate()}/${hoje.getMonth() + 1}/${hoje.getFullYear()}`;
-            document.getElementById("data").innerText = dataFormatada;
-        }
-        
         function gerarPalpites() {
             const animais = [
                 "AVESTRUZ 🕊️", "ÁGUIA 🦅", "BURRO 🫏", "BORBOLETA 🦋", "CACHORRO 🐶",
@@ -84,9 +67,8 @@
         }
     </script>
 </head>
-<body onload="gerarData(); gerarPalpites()">
-    <h1>🍀 PALPITES DO DIA 🍀</h1>
-    <div id="data"></div>
+<body onload="gerarPalpites()">
+    <h1>🍀 PALPITE DO DIA VIVI JB 🍀</h1>
     
     <h2>🍀 PALPITES MILHAR E CENTENA 🍀</h2>
     <table>
