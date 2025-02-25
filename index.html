@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍀 PALPITES DO DIA 🍀</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #2E8B57; /* Cor verde para o fundo */
+            color: white;
+            margin: 20px;
+        }
+        #data {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #FFA500; /* Cor laranja para a tabela */
+            color: black;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #FF8C00; /* Cor mais escura de laranja para os cabeçalhos */
+            color: white;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffff66;
+        }
+    </style>
+    <script>
+        function gerarData() {
+            const diasSemana = ["DOMINGO", "SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SÁBADO"];
+            let hoje = new Date();
+            let diaSemana = diasSemana[hoje.getDay()];
+            let dataFormatada = `${diaSemana} ${hoje.getDate()}/${hoje.getMonth() + 1}/${hoje.getFullYear()}`;
+            document.getElementById("data").innerText = dataFormatada;
+        }
+        
+        function gerarPalpites() {
+            const animais = [
+                "AVESTRUZ 🕊️", "ÁGUIA 🦅", "BURRO 🫏", "BORBOLETA 🦋", "CACHORRO 🐶",
+                "CABRA 🐐", "CARNEIRO 🐏", "CAMELO 🐪", "COBRA 🐍", "COELHO 🐰",
+                "CAVALO 🐴", "ELEFANTE 🐘", "GALO 🐓", "GATO 🐱", "JACARÉ 🐊",
+                "LEÃO 🦁", "MACACO 🐵", "PORCO 🐷", "PAVÃO 🦚", "PERU 🦃",
+                "TOURO 🐂", "TIGRE 🐯", "URSO 🐻", "VEADO 🦌", "VACA 🐄"
+            ];
+            
+            let palpitesMilhar = "";
+            for (let i = 0; i < 10; i++) {
+                let milhar = ("0000" + Math.floor(Math.random() * 10000)).slice(-4);
+                let grupo = Math.floor(milhar / 4) % 25; // Estimativa do grupo baseado no número
+                palpitesMilhar += `<tr><td>🍀 ${milhar}</td><td>${animais[grupo]}</td></tr>`;
+            }
+            document.getElementById("palpitesMilhar").innerHTML = palpitesMilhar;
+            
+            let palpitesGrupo = "";
+            for (let i = 0; i < 4; i++) {
+                let grupo = Math.floor(Math.random() * 25) + 1;
+                palpitesGrupo += `<tr><td>🍀 ${grupo}</td><td>${animais[grupo - 1]}</td></tr>`;
+            }
+            
+            document.getElementById("palpitesGrupo").innerHTML = palpitesGrupo;
+        }
+    </script>
+</head>
+<body onload="gerarData(); gerarPalpites()">
+    <h1>🍀 PALPITES DO DIA 🍀</h1>
+    <div id="data"></div>
+    
+    <h2>🍀 PALPITES MILHAR E CENTENA 🍀</h2>
+    <table>
+        <tr><th>MILHAR</th><th>ANIMAL</th></tr>
+        <tbody id="palpitesMilhar"></tbody>
+    </table>
+    
+    <h2>🍀 PALPITES GRUPO 🍀</h2>
+    <table>
+        <tr><th>GRUPO</th><th>ANIMAL</th></tr>
+        <tbody id="palpitesGrupo"></tbody>
+    </table>
+    
+    <p class="message">🍀 BOA SORTE! QUE DEUS TE AJUDE A ACERTAR NO JOGO. 🍀🍀🍀</p>
+</body>
+</html>
